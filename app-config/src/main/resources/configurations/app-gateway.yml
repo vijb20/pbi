@@ -1,0 +1,21 @@
+eureka:
+  client:
+    register-with-eureka: false
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: app-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: productos
+          uri: http://localhost:8091
+          predicates:
+            - Path=/api/producto/**
+        - id: clientes
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/cliente/**
