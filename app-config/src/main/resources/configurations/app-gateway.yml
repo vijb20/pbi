@@ -12,10 +12,10 @@ spring:
     gateway:
       routes:
         - id: productos
-          uri: http://localhost:8091
+          uri: lb://app-productos
           predicates:
             - Path=/api/producto/**
         - id: clientes
-          uri: http://localhost:8090
+          uri: lb://app-cliente
           predicates:
             - Path=/api/cliente/**
